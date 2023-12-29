@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserFormComponent } from './user-form/user-form.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
-  { path: 'add-user', component: UserFormComponent },
-  { path: 'update-user/:id', component: UserFormComponent }
+  { path: 'add-user', component: UserComponent },
+  { path: 'update-user/:id', component: UserComponent }
 ];
 
 @NgModule({

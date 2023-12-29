@@ -7,10 +7,10 @@ import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.scss']
 })
-export class UserFormComponent implements OnInit {
-  userForm: FormGroup;
+export class UserComponent implements OnInit {
+  userForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,

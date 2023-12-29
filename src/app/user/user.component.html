@@ -1,1 +1,12 @@
 <p>user works!</p>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="p-field">
+      <label for="name">Name</label>
+      <input id="name" type="text" pInputText formControlName="Name" [ngClass]="{ 'p-invalid': userForm.get('Name')?.invalid && userForm.get('Name')?.touched }">
+      <div *ngIf="userForm.get('Name')?.invalid && userForm.get('Name')?.touched" class="p-error">
+        <small *ngIf="userForm.get('Name')?.errors?.['required']">Name is required.</small>
+      </div>
+    </div>
+    <!-- Other form controls -->
+    <button type="submit" pButton label="Add User"></button>
+  </form>
