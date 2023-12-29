@@ -15,7 +15,7 @@ export interface EntityBase
 {
         Id: number;
         CreatedDate: Date;
-        CreatedBy?: string;
+        CreatedBy?: Date;
         ModifiedDate?: Date;
         ModifiedBy?: string;
         IsActive: boolean;

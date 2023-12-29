@@ -1,0 +1,31 @@
+<p>user-role-list works!</p>
+<p-table [value]="userRoles" [paginator]="true" [rows]="10" [responsive]="true"  
+dataKey="Id">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Role Name</th>
+        <th>Action</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-userRole>
+      <tr>
+        <td>{{ userRole.RoleName }}</td>
+        <td>
+          <button pButton icon="pi pi-pencil" (click)="editUserRole(userRole)"></button>
+          <button pButton icon="pi pi-trash" (click)="deleteUserRole(userRole)"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  
+  <!-- <p-dialog [(visible)]="displayDialog" [responsive]="true">
+    <h3>Add/Edit User Role</h3>
+    <form [formGroup]="userForm">
+      <div class="p-field">
+        <label for="roleName">Role Name</label>
+        <input id="roleName" type="text" formControlName="RoleName" pInputText>
+      </div>
+    </form>
+    <button pButton label="Save" (click)="saveUserRole()"></button>
+    <button pButton label="Cancel" (click)="cancelEdit()"></button>
+  </p-dialog> -->

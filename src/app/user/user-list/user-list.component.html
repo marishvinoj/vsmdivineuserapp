@@ -1,5 +1,6 @@
 <p>user-list works!</p>
-<p-table [value]="users" [rows]="10" [paginator]="true" [responsive]="true">
+<p-table [value]="users" [rows]="10" [paginator]="true" 
+dataKey="Id">
     <ng-template pTemplate="header">
       <tr>
         <th>Name</th>
@@ -10,9 +11,9 @@
     </ng-template>
     <ng-template pTemplate="body" let-user>
       <tr>
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.gender ? 'Male' : 'Female' }}</td>
+        <td>{{ user.Name }}</td>
+        <td>{{ user.Email }}</td>
+        <td>{{ user.Gender ? 'Male' : 'Female' }}</td>
         <!-- Add other table cells -->
       </tr>
     </ng-template>

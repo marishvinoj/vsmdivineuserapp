@@ -11,14 +11,19 @@ import { UserComponent } from './user/user.component';
 import {AppComponent} from './app.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-import { UserService } from './user.service';
+import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
-import { UserListComponent } from './user-list/user-list.component';
+import { UserListComponent } from './user/user-list/user-list.component';
 import { ToggleButtonModule } from 'primeng/togglebutton';
+import { UserRoleComponent } from './user-role/user-role.component';
+import { UserRoleListComponent } from './user-role/user-role-list/user-role-list.component';
+import { UserRoleMappingComponent } from './user-role-mapping/user-role-mapping.component';
+import { UserRoleMappingListComponent } from './user-role-mapping/user-role-mapping-list/user-role-mapping-list.component';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
-    UserComponent,AppComponent, UserListComponent
+    UserComponent,AppComponent, UserListComponent, UserRoleComponent, UserRoleListComponent, UserRoleMappingComponent, UserRoleMappingListComponent
   ],
   imports: [
     RouterModule,AppRoutingModule,
@@ -32,6 +37,7 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
     ToastModule,
     HttpClientModule, 
     ToggleButtonModule,
+    TableModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
