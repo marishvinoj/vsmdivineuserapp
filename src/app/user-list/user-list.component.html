@@ -1,0 +1,19 @@
+<p>user-list works!</p>
+<p-table [value]="users" [rows]="10" [paginator]="true" [responsive]="true">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <!-- Add other table headers -->
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.gender ? 'Male' : 'Female' }}</td>
+        <!-- Add other table cells -->
+      </tr>
+    </ng-template>
+  </p-table>

@@ -13,10 +13,12 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { UserService } from './user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { UserListComponent } from './user-list/user-list.component';
+import { ToggleButtonModule } from 'primeng/togglebutton';
 
 @NgModule({
   declarations: [
-    UserComponent,AppComponent
+    UserComponent,AppComponent, UserListComponent
   ],
   imports: [
     RouterModule,AppRoutingModule,
@@ -29,12 +31,17 @@ import { HttpClientModule } from '@angular/common/http';
     ButtonModule,
     ToastModule,
     HttpClientModule, 
+    ToggleButtonModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [MessageService, UserService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
+  exports: [
+    ToggleButtonModule
+  ]
 })
 
 export class AppModule { }

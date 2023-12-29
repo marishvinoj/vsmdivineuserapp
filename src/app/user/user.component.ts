@@ -11,6 +11,7 @@ import { MessageService } from 'primeng/api';
 })
 export class UserComponent implements OnInit {
   userForm!: FormGroup;
+  checked: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
