@@ -1,20 +1,7 @@
 <p>user-list works!</p>
-<p-table [value]="users" [rows]="10" [paginator]="true" 
-dataKey="Id">
-    <ng-template pTemplate="header">
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Gender</th>
-        <!-- Add other table headers -->
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-user>
-      <tr>
-        <td>{{ user.Name }}</td>
-        <td>{{ user.Email }}</td>
-        <td>{{ user.Gender ? 'Male' : 'Female' }}</td>
-        <!-- Add other table cells -->
-      </tr>
-    </ng-template>
-  </p-table>
+<button label="Add User" pButton pRipple  (click)="add()"></button>
+<div class="float-container">
+  <div class="float-child">
+    <app-list [message]="updateurl" [GridArray]="users" [HeadArray]="cmHeaders" (itemSelected)="getSelectedItem($event)"></app-list>
+  </div>
+</div>

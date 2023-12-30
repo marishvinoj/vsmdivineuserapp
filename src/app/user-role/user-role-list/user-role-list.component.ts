@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserRole } from 'src/app/models/userrole';
+import { UserRole, userRoleHeaders } from 'src/app/models/userrole';
 import { UserRoleService } from 'src/app/services/userrole.service';
+import { environment } from 'src/app/shared/shared/environment/environment';
 
 @Component({
   selector: 'app-user-role-list',
@@ -13,6 +14,9 @@ export class UserRoleListComponent implements OnInit {
   userRoles: UserRole[] = []; // array to store user roles
   selectedUserRole: UserRole | null = null;
   displayDialog: boolean = false; // flag to show/hide dialog
+  public headers:any |undefined;
+  public cmHeaders = userRoleHeaders;
+  public updateurl: string = environment.userRole.updateurl;
 
   /**
    *
@@ -29,23 +33,10 @@ export class UserRoleListComponent implements OnInit {
     });
   }
 
-  editUserRole(userRole: UserRole) {
-    this.selectedUserRole = { ...userRole };
-    this.router.navigate(['update-user-role', userRole.Id]);
-    this.displayDialog = true;
-  }
-  
-  deleteUserRole(userRole: UserRole) {
-    // implement delete logic
-  }
-  
-  saveUserRole() {
-    // implement save logic
-  }
-  
-  cancelEdit() {
-    this.selectedUserRole = null;
-    this.displayDialog = false;
+  public getSelectedItem(item: any): void {
+    if (item == null) {
+    } else {
+    }
   }
 
 }

@@ -5,7 +5,8 @@
           <legend>User Details</legend>
             <div class="form-group p-field" >
                 <label for="name">Name</label>
-                <input id="name" type="text" pInputText formControlName="Name" [ngClass]="{ 'p-invalid': userForm.get('Name')?.invalid && userForm.get('Name')?.touched }" />
+                <input id="name" type="text" pInputText formControlName="Name" 
+                [ngClass]="{ 'p-invalid': userForm.get('Name')?.invalid && userForm.get('Name')?.touched }" />
                 <div *ngIf="userForm.get('Name')?.invalid && userForm.get('Name')?.touched" class="p-error">
                 <small *ngIf="userForm.get('Name')?.errors?.['required']">Name is required.</small>
                 </div>
@@ -13,7 +14,8 @@
         
             <div class="form-group p-field" >
                 <label for="email">Email</label>
-                <input id="email" type="email" pInputText formControlName="Email" [ngClass]="{ 'p-invalid': userForm.get('Email')?.invalid && userForm.get('Email')?.touched }" />
+                <input id="email" type="email" pInputText formControlName="Email" 
+                [ngClass]="{ 'p-invalid': userForm.get('Email')?.invalid && userForm.get('Email')?.touched }" />
                 <div *ngIf="userForm.get('Email')?.invalid && userForm.get('Email')?.touched" class="p-error">
                 <small *ngIf="userForm.get('Email')?.errors?.['required']">Email is required.</small>
                 <small *ngIf="userForm.get('Email')?.errors?.['Email']">Invalid email format.</small>
@@ -22,21 +24,13 @@
         
             <div class="form-group p-field" >
                 <label for="password">Password</label>
-                <input id="password" type="password" pPassword formControlName="Password" [ngClass]="{ 'p-invalid': userForm.get('Password')?.invalid && userForm.get('Password')?.touched }" />
+                <input id="password" type="password" pPassword formControlName="Password" 
+                [ngClass]="{ 'p-invalid': userForm.get('Password')?.invalid && userForm.get('Password')?.touched }" />
                 <div *ngIf="userForm.get('Password')?.invalid && userForm.get('Password')?.touched" class="p-error">
                 <small *ngIf="userForm.get('Password')?.errors?.['required']">Password is required.</small>
                 </div>
             </div>
         
-            <!-- <div class="form-group p-field" >
-                <label for="gender">Gender</label>
-                <p-radioButton name="gender" value="true" label="Male" formControlName="Gender"></p-radioButton>
-                <p-radioButton name="gender" value="false" label="Female" formControlName="Gender"></p-radioButton>
-                <div *ngIf="userForm.get('Gender')?.invalid && userForm.get('Gender')?.touched" class="p-error">
-                <small>Gender is required.</small>
-                </div>
-            </div> -->
-            
             <div class="form-group p-field">
                 <label for="gender">Gender</label>
                 <div class="p-grid">
@@ -49,23 +43,17 @@
             
             <div class="form-group p-field" >
                 <label for="mobileNumber">Mobile Number</label>
-                <input id="mobileNumber" type="text" pInputText formControlName="MobileNumber" [ngClass]="{ 'p-invalid': userForm.get('MobileNumber')?.invalid && userForm.get('MobileNumber')?.touched }" />
+                <input id="mobileNumber" type="number" pInputText formControlName="MobileNumber" 
+                [ngClass]="{ 'p-invalid': userForm.get('MobileNumber')?.invalid && userForm.get('MobileNumber')?.touched }" />
                 <div *ngIf="userForm.get('MobileNumber')?.invalid && userForm.get('MobileNumber')?.touched" class="p-error">
                 <small *ngIf="userForm.get('MobileNumber')?.errors?.['required']">Mobile Number is required.</small>
                 </div>
             </div>
-        
-            <div class="form-group p-field" >
-                <label for="emailId">Email ID</label>
-                <input id="emailId" type="text" pInputText formControlName="EmailId" [ngClass]="{ 'p-invalid': userForm.get('EmailId')?.invalid && userForm.get('EmailId')?.touched }" />
-                <div *ngIf="userForm.get('EmailId')?.invalid && userForm.get('EmailId')?.touched" class="p-error">
-                <small *ngIf="userForm.get('EmailId')?.errors?.['required']">Email ID is required.</small>
-                </div>
-            </div>
-        
+
             <div class="form-group p-field" >
                 <label for="dob">Date of Birth</label>
-                <p-calendar id="dob" formControlName="Dob" [ngClass]="{ 'p-invalid': userForm.get('Dob')?.invalid && userForm.get('Dob')?.touched }"></p-calendar>
+                <p-calendar id="dob" formControlName="Dob" 
+                [ngClass]="{ 'p-invalid': userForm.get('Dob')?.invalid && userForm.get('Dob')?.touched }"></p-calendar>
                 <div *ngIf="userForm.get('Dob')?.invalid && userForm.get('Dob')?.touched" class="p-error">
                 <small *ngIf="userForm.get('Dob')?.errors?.['required']">Date of Birth is required.</small>
                 </div>
@@ -73,7 +61,8 @@
         
             <div class="form-group p-field" >
                 <label for="address">Address</label>
-                <textarea id="address" pInputTextarea formControlName="Address" [ngClass]="{ 'p-invalid': userForm.get('Address')?.invalid && userForm.get('Address')?.touched }"></textarea>
+                <textarea id="address" pInputTextarea formControlName="Address" 
+                [ngClass]="{ 'p-invalid': userForm.get('Address')?.invalid && userForm.get('Address')?.touched }"></textarea>
                 <div *ngIf="userForm.get('Address')?.invalid && userForm.get('Address')?.touched" class="p-error">
                 <small *ngIf="userForm.get('Address')?.errors?.['required']">Address is required.</small>
                 </div>
@@ -81,10 +70,19 @@
         
             <div class="form-group p-field" >
                 <label for="pincode">Pincode</label>
-                <input id="pincode" type="text" pInputText formControlName="Pincode" [ngClass]="{ 'p-invalid': userForm.get('Pincode')?.invalid && userForm.get('Pincode')?.touched }" />
+                <!-- <input id="pincode" type="text" pInputText formControlName="Pincode" 
+                [ngClass]="{ 'p-invalid': userForm.get('Pincode')?.invalid && userForm.get('Pincode')?.touched }" /> -->
+                <input id="pincode" type="number" pInputText formControlName="Pincode" 
+                [ngClass]="{ 'p-invalid': userForm.get('Pincode')?.invalid && userForm.get('Pincode')?.touched }">
+                <div *ngIf=" userForm.get('Pincode')?.invalid && (userForm.get('Pincode')?.dirty || userForm.get('Pincode')?.touched)">
+                  <div *ngIf="userForm.get('Pincode')?.errors?.['pattern']">
+                    Pincode must be a 6-digit number.
+                  </div>
+                </div>
             </div>
         
             <div class="form-group p-field" >
+                <!-- [disabled]="!userForm.valid -->
                 <button type="submit" pButton label="Submit" [disabled]="!userForm.valid"></button>
             </div>
       

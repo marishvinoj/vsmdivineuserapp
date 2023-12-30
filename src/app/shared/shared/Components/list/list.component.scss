@@ -1,0 +1,13 @@
+:host ::ng-deep .p-dialog .patient-image {
+    width: 150px;
+    margin: 0 auto 2rem auto;
+    display: block;
+}
+
+::ng-deep .p-togglebutton.p-button:not(.p-disabled):not(.p-highlight) {
+    background: #e751f1 !important;
+    border: 1px solid #e751f1 !important;
+}
+
+
+

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserRoleService } from '../services/userrole.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserRole } from '../models/userrole';
+import { environment } from '../shared/shared/environment/environment';
 
 @Component({
   selector: 'app-user-role',
@@ -10,12 +13,34 @@ import { UserRoleService } from '../services/userrole.service';
 export class UserRoleComponent implements OnInit {
   userForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userRoleService: UserRoleService) { }
+  constructor(private formBuilder: FormBuilder, private userRoleService: UserRoleService,
+    private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
-      RoleName: ['', Validators.required]
+      RoleName: ['', Validators.required],
+      Id: [],
+      CreatedDate: [],
+      CreatedBy: [],
+      ModifiedDate: [],
+      ModifiedBy: [],
+      IsActive: []
     });
+
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    var obj = this.userRoleService.getUserRoleById(id).subscribe(
+      (response: any) => {
+      // (response: ApiResponse<Patient>) => {
+        // Handle the successful response here
+        this.userForm.patchValue(response as UserRole);
+
+        console.log(response);
+      },
+      (error: any) => {
+        // Handle the error here
+        console.error(error);
+      }
+    );
   }
 
   onSubmit(): void {
@@ -23,15 +48,32 @@ export class UserRoleComponent implements OnInit {
       return;
     }
   
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+
     const userRole = this.userForm.value;
-    this.userRoleService.addUserRole(userRole).subscribe(
-      () => {
-        // handle success
-      },
-      (error) => {
-        // handle error
-      }
-    );
+    if(id != null)
+    {
+      this.userRoleService.updateUserRole(userRole).subscribe(
+        () => {
+          // handle success
+          this.router.navigate([environment.userRole.listurl]);
+        },
+        (error) => {
+          // handle error
+        }
+      );
+    }
+    else
+    {
+      this.userRoleService.addUserRole(userRole).subscribe(
+        () => {
+          // handle success
+        },
+        (error) => {
+          // handle error
+        }
+      );
+    }
   }
 
   // other component methods

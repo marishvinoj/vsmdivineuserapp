@@ -1,0 +1,67 @@
+<p>list works!</p>
+<div class="card">
+    <p-table
+    #dt    
+    [rows]="10"
+    [paginator]="true"
+    [value]="GridArray" 
+    [columns]="HeadArray" 
+    [title] = "title"
+    dataKey="Id"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [showCurrentPageReport]="true"
+    editMode="row" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)"
+    >
+    <ng-template pTemplate="caption">
+        <!-- <div class="flex align-items-center justify-content-between">
+            <h5 class="m-0">{{title}}</h5>
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" 
+                    placeholder="Search..." />
+            </span>
+        </div> -->
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width: 4rem">
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+        <th *ngFor="let key of keys;"  [pSortableColumn]="key" pReorderableColumn>
+            <ng-container *ngIf="key !== 'Id' && key !== 'CreatedBy'
+             && key !== 'CreatedDate' && key !== 'ModifiedDate'
+             && key !== 'ModifiedBy' && key !== 'IsActive'
+            ">
+                <p-sortIcon [field]="key"></p-sortIcon> <span  >{{key}}</span>
+            </ng-container>
+        </th>
+        <th *ngIf="Show">
+
+        </th>
+        </tr>
+    </ng-template>
+        <ng-template pTemplate="body" let-grid>            
+            <tr>
+                <td>
+                    <p-tableCheckbox [name]="grid.Id"></p-tableCheckbox>
+                </td>
+                <td  *ngFor="let key of keys;"  [pEditableColumn]="grid[key]" pEditableColumnField="grid[key]">
+                    <ng-container *ngIf="key !== 'Id' && key !== 'CreatedBy'
+                    && key !== 'CreatedDate' && key !== 'ModifiedDate'
+                    && key !== 'ModifiedBy' && key !== 'IsActive'">
+                        {{grid[key]}}
+                    </ng-container>
+                </td>
+                <td *ngIf="Show">
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" 
+                    (click)="edit('Edit',grid)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" 
+                    (click)="delete(grid)"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">In total there are {{ GridArray ? GridArray.length : 0 }} Treatments.</div>
+        </ng-template>
+    </p-table> 
+</div>

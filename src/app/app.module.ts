@@ -20,10 +20,13 @@ import { UserRoleListComponent } from './user-role/user-role-list/user-role-list
 import { UserRoleMappingComponent } from './user-role-mapping/user-role-mapping.component';
 import { UserRoleMappingListComponent } from './user-role-mapping/user-role-mapping-list/user-role-mapping-list.component';
 import {TableModule} from 'primeng/table';
+import { ListComponent } from './shared/shared/Components/list/list.component';
+import { SharedModule } from './shared/shared/shared/shared.module';
+import { PaginatorModule } from 'primeng/paginator'; // Here
 
 @NgModule({
   declarations: [
-    UserComponent,AppComponent, UserListComponent, UserRoleComponent, UserRoleListComponent, UserRoleMappingComponent, UserRoleMappingListComponent
+    UserComponent,AppComponent, UserListComponent, UserRoleComponent, UserRoleListComponent, UserRoleMappingComponent, UserRoleMappingListComponent, ListComponent
   ],
   imports: [
     RouterModule,AppRoutingModule,
@@ -37,14 +40,13 @@ import {TableModule} from 'primeng/table';
     ToastModule,
     HttpClientModule, 
     ToggleButtonModule,
-    TableModule,
+    SharedModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [MessageService, UserService],
   bootstrap: [AppComponent],
-  
   exports: [
     ToggleButtonModule
   ]

@@ -17,20 +17,21 @@ export class UserComponent implements OnInit {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private messageService: MessageService
-  ) { }
-
-  ngOnInit(): void {
+  ) { 
     this.userForm = this.formBuilder.group({
       Name: ['', Validators.required],
       Email: ['', [Validators.required, Validators.email]],
       Password: ['', Validators.required],
       Gender: [true, Validators.required],
-      MobileNumber: ['', Validators.required],
-      EmailId: ['', Validators.required],
-      Dob: ['', Validators.required],
+      MobileNumber: [0, Validators.required],
+      Dob: [new Date(), Validators.required],
       Address: ['', Validators.required],
-      Pincode: ['']
+      Pincode: [0, [Validators.pattern(/^\d{6}$/)]]
     });
+  }
+
+  ngOnInit(): void {
+   
   }
 
   onSubmit(): void {

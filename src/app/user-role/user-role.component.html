@@ -1,14 +1,14 @@
 <p>user-role works!</p><div class="p-fluid">
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-        <fieldset>
-          <legend>User Role Details</legend>
-          <div class="form-group p-field" >
-            <label for="name">Role Name</label>
-            <input id="name" type="text" pInputText formControlName="RoleName" [ngClass]="{ 'p-invalid': userForm.get('RoleName')?.invalid && userForm.get('RoleName')?.touched }" />
-            <div *ngIf="userForm.get('RoleName')?.invalid && userForm.get('RoleName')?.touched" class="p-error">
-                <small *ngIf="userForm.get('RoleName')?.errors?.['required']">Name is required.</small>
-            </div>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <fieldset>
+      <legend>User Role Details</legend>
+      <div class="form-group p-field" >
+        <label for="name">Role Name</label>
+        <input id="name" type="text" pInputText formControlName="RoleName" [ngClass]="{ 'p-invalid': userForm.get('RoleName')?.invalid && userForm.get('RoleName')?.touched }" />
+        <div *ngIf="userForm.get('RoleName')?.invalid && userForm.get('RoleName')?.touched" class="p-error">
+            <small *ngIf="userForm.get('RoleName')?.errors?.['required']">Name is required.</small>
         </div>
-    <button type="submit" pButton label="Submit"></button>
-    </fieldset>
-  </form>
+    </div>
+<button type="submit" pButton label="Submit"></button>
+</fieldset>
+</form>

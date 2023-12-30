@@ -4,28 +4,32 @@ import { Observable } from 'rxjs';
 import { User } from '../models/user';
 import { UserRole } from '../models/userrole';
 import { environment } from '../shared/shared/environment/environment';
+import { CommonService } from './common.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserRoleService {
-  url: string = 'api';
-  private apiUrl = 'api/users';
+  url: string|undefined;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private commonService: CommonService) { }
 
   addUserRole(user: UserRole): Observable<any> {
-    debugger;
-    return this.http.post<any>(`${environment.apiUrl}${this.url}${'/UserRole'}`, user);
+    user.CreatedDate = this.commonService.getUTCTime();
+    user.IsActive = true;
+    return this.http.post<any>(`${environment.apiUrl}${'api/UserRole'}`, user);
   }
 
   updateUserRole(user: UserRole): Observable<any> {
-    debugger;
-    return this.http.put<any>(`${environment.apiUrl}${this.url}{'/UserRole'}/${user.Id}`, user);
+    user.ModifiedDate = this.commonService.getUTCTime();
+    return this.http.put<any>(`${environment.apiUrl}${'api/UserRole'}/${user.Id}`, user);
+  }
+
+  getUserRoleById(Id: number): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}${'api/UserRole'}/${Id}`);
   }
 
   getAllUserRole(): Observable<UserRole[]> {
-    debugger;
     this.url= environment.apiUrl + 'api/UserRole';
     return this.http.get<UserRole[]>(this.url);
   }
