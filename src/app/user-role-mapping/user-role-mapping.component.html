@@ -1,1 +1,25 @@
 <p>user-role-mapping works!</p>
+<div class="p-fluid">
+    <form [formGroup]="userRoleForm" (ngSubmit)="onSubmit()">
+        <fieldset>
+            <legend>User RoleMapping Details</legend>
+            <div class="form-group p-field" >
+            <label for="UserId">User ID</label>
+            <p-dropdown formControlName="UserId" [options]="userIds" optionLabel="name" placeholder="Select a user"></p-dropdown>
+            <div *ngIf="userRoleForm.get('UserId')?.invalid && userRoleForm.get('UserId')?.touched" class="text-danger">
+                User ID is required
+            </div>
+            </div>
+        
+            <div class="form-group p-field" >
+            <label for="roles">Roles</label>
+            <p-dropdown formControlName="roles" [options]="roles" optionLabel="name" [multiple]="true" placeholder="Select roles"></p-dropdown>
+            <div *ngIf="userRoleForm.get('roles')?.invalid && userRoleForm.get('roles')?.touched" class="text-danger">
+                Roles are required
+            </div>
+            </div>
+    
+            <button type="submit" [disabled]="!userRoleForm.valid">Submit</button>
+        </fieldset>
+    </form>
+</div>

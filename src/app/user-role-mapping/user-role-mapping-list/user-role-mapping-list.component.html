@@ -1,1 +1,7 @@
 <p>user-role-mapping-list works!</p>
+<button label="Add" pButton pRipple  (click)="add()"></button>
+<div class="float-container">
+  <div class="float-child">
+    <app-list [message]="updateurl" [GridArray]="userRoleMappings" [HeadArray]="cmHeaders" (itemSelected)="getSelectedItem($event)"></app-list>
+  </div>
+</div>

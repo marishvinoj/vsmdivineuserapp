@@ -14,7 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule
   ],
   exports: [
-    TableModule
+    TableModule,
+    DropdownModule
   ]
 })
 export class SharedModule { }

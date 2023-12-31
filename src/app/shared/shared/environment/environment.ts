@@ -14,5 +14,11 @@ export const environment = {
       addurl: '/adduserrole',
       updateurl:'updateuserrole/',
       listurl: 'userrolelist/',
+    },
+    userRoleMapping:
+    {
+      addurl: '/adduserrolemapping',
+      updateurl:'updateuserrolemapping/',
+      listurl: 'userrolemappinglist/',
     }
   }
