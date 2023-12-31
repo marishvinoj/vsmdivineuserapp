@@ -4,17 +4,17 @@
         <fieldset>
             <legend>User Role Mapping Details</legend>
             <div class="form-group p-field" >
-            <label for="UserId">User ID</label>
-            <p-dropdown formControlName="UserId" [options]="userIds" optionLabel="name" placeholder="Select a user"></p-dropdown>
-            <div *ngIf="userRoleForm.get('UserId')?.invalid && userRoleForm.get('UserId')?.touched" class="text-danger">
+            <label for="UserID">User ID</label>
+            <p-dropdown formControlName="UserID" [options]="userIds" optionLabel="name" placeholder="Select a user"></p-dropdown>
+            <div *ngIf="userRoleForm.get('UserID')?.invalid && userRoleForm.get('UserID')?.touched" class="text-danger">
                 User ID is required
             </div>
             </div>
         
             <div class="form-group p-field" >
-            <label for="roles">Roles</label>
-            <p-dropdown formControlName="roles" [options]="roles" optionLabel="name" [multiple]="true" placeholder="Select roles"></p-dropdown>
-            <div *ngIf="userRoleForm.get('roles')?.invalid && userRoleForm.get('roles')?.touched" class="text-danger">
+            <label for="Roles">Roles</label>
+            <p-dropdown formControlName="Roles" [options]="roles" optionLabel="name" [multiple]="true" placeholder="Select Roles"></p-dropdown>
+            <div *ngIf="userRoleForm.get('Roles')?.invalid && userRoleForm.get('Roles')?.touched" class="text-danger">
                 Roles are required
             </div>
             </div>
