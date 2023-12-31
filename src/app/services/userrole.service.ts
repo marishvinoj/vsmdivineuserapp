@@ -15,23 +15,19 @@ export class UserRoleService {
   constructor(private http: HttpClient, private commonService: CommonService) { }
 
   addUserRole(user: UserRole): Observable<any> {
-    user.CreatedDate = this.commonService.getUTCTime();
-    user.IsActive = true;
-    return this.http.post<any>(`${environment.apiUrl}${'api/UserRole'}`, user);
+    return this.commonService.add(user, `${environment.apiUrl}${'api/UserRole'}`);
   }
 
   updateUserRole(user: UserRole): Observable<any> {
-    user.ModifiedDate = this.commonService.getUTCTime();
-    return this.http.put<any>(`${environment.apiUrl}${'api/UserRole'}/${user.Id}`, user);
+    return this.commonService.update(user, `${environment.apiUrl}${'api/UserRole'}/${user.Id}`);
   }
 
   getUserRoleById(Id: number): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}${'api/UserRole'}/${Id}`);
+    return this.commonService.getById(`${environment.apiUrl}${'api/UserRole'}/${Id}`);
   }
 
   getAllUserRole(): Observable<UserRole[]> {
-    this.url= environment.apiUrl + 'api/UserRole';
-    return this.http.get<UserRole[]>(this.url);
+    return this.commonService.getAll(`${environment.apiUrl}${'api/UserRole'}`);
   }
 
 }

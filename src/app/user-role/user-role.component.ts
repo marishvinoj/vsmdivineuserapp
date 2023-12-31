@@ -28,19 +28,22 @@ export class UserRoleComponent implements OnInit {
     });
 
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    var obj = this.userRoleService.getUserRoleById(id).subscribe(
-      (response: any) => {
-      // (response: ApiResponse<Patient>) => {
-        // Handle the successful response here
-        this.userForm.patchValue(response as UserRole);
+    if(id != 0)
+    {
+      var obj = this.userRoleService.getUserRoleById(id).subscribe(
+        (response: any) => {
+        // (response: ApiResponse<Patient>) => {
+          // Handle the successful response here
+          this.userForm.patchValue(response as UserRole);
 
-        console.log(response);
-      },
-      (error: any) => {
-        // Handle the error here
-        console.error(error);
-      }
-    );
+          console.log(response);
+        },
+        (error: any) => {
+          // Handle the error here
+          console.error(error);
+        }
+      );
+    }
   }
 
   onSubmit(): void {
@@ -51,7 +54,7 @@ export class UserRoleComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
     const userRole = this.userForm.value;
-    if(id != null)
+    if(id != 0)
     {
       this.userRoleService.updateUserRole(userRole).subscribe(
         () => {
@@ -68,6 +71,7 @@ export class UserRoleComponent implements OnInit {
       this.userRoleService.addUserRole(userRole).subscribe(
         () => {
           // handle success
+          this.router.navigate([environment.userRole.listurl]);
         },
         (error) => {
           // handle error

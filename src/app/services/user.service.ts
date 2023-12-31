@@ -21,22 +21,19 @@ export class UserService {
     
 
   addUser(user: User): Observable<any> {
-    debugger;
-    user.CreatedDate = this.commonService.getUTCTime();
-    user.IsActive = true;
-    return this.http.post<User>(`${environment.apiUrl}${'api/Users'}`, user);
+    return this.commonService.add(user, `${environment.apiUrl}${'api/Users'}`);
   }
 
   updateUser(user: User): Observable<any> {
-    debugger;
-    user.ModifiedDate = this.commonService.getUTCTime();
-    return this.http.put<User>(`${environment.apiUrl}${'api/Users'}/${user.Id}`, user);
+    return this.commonService.update(user, `${environment.apiUrl}${'api/Users'}/${user.Id}`);
+  }
+
+  getUserRoleById(Id: number, url:string): Observable<any> {
+    return this.commonService.getById(`${environment.apiUrl}${'api/Users'}/${Id}`);
   }
 
   getAllUsers(): Observable<User[]> {
-    debugger;
-    // return this.http.get<any[]>(this.url);
-    return this.http.get<any>(`${environment.apiUrl}${'api/Users'}`);
+    return this.commonService.getAll(`${environment.apiUrl}${'api/Users'}`);
   }
 
 }

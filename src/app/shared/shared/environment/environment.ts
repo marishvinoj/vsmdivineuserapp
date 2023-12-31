@@ -11,7 +11,7 @@ export const environment = {
     },
     userRole:
     {
-      addurl: 'adduserrole/',
+      addurl: '/adduserrole',
       updateurl:'updateuserrole/',
       listurl: 'userrolelist/',
     }

@@ -16,6 +16,7 @@ export class UserRoleListComponent implements OnInit {
   displayDialog: boolean = false; // flag to show/hide dialog
   public headers:any |undefined;
   public cmHeaders = userRoleHeaders;
+  public addUrl: string = environment.userRole.addurl;
   public updateurl: string = environment.userRole.updateurl;
 
   /**
@@ -37,6 +38,11 @@ export class UserRoleListComponent implements OnInit {
     if (item == null) {
     } else {
     }
+  }
+
+  public add()
+  {
+    this.router.navigate([environment.user.adduser]);
   }
 
 }

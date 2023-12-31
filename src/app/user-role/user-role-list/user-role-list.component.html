@@ -1,4 +1,6 @@
 <p>user-role-list works!</p>
+<!-- <app-add [url]="addUrl" ></app-add> -->
+<button label="Add" pButton pRipple  (click)="add()"></button>
 <div class="float-container">
 <div class="float-child">
 <app-list [message]="updateurl" [GridArray]="userRoles" [HeadArray]="cmHeaders" (itemSelected)="getSelectedItem($event)"></app-list>
