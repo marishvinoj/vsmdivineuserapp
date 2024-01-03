@@ -6,7 +6,7 @@
             <div class="form-group p-field" >
             <label for="UserID">User ID</label>
             <p-dropdown formControlName="UserID" [options]="users" optionLabel="name" placeholder="Select a user"
-            optionLabel="Name" [(ngModel)]="selectedUser"></p-dropdown>
+            optionLabel="Name" [(ngModel)]="selectedUser"  [disabled]="isUpdate"></p-dropdown>
             <div *ngIf="userRoleForm.get('UserID')?.invalid && userRoleForm.get('UserID')?.touched" class="text-danger">
                 User ID is required!
             </div>

@@ -6,8 +6,9 @@
   import { MessageService } from 'primeng/api';
   import { UserRoleMappingDto } from '../models/UserRoleMappingDto ';
   import { UserRole } from '../models/userrole';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { environment } from '../shared/shared/environment/environment';
 
   @Component({
     selector: 'app-user-role-mapping',
@@ -17,29 +18,24 @@ import { UserService } from '../services/user.service';
 
   export class UserRoleMappingComponent implements OnInit {
     userRoleForm!: FormGroup;
-    users: any[] = [
-      // { id: 1, name: 'User 1' },
-      // { id: 2, name: 'User 2' },
-      // { id: 3, name: 'User 3' }
-    ];
-    roles: any[] = [
-      // { id: 1, name: 'Role 1' },
-      // { id: 2, name: 'Role 2' },
-      // { id: 3, name: 'Role 3' }
-    ];
+    users: any[] = [];
+    roles: any[] = [];
     selectedRoles: any[] = [];
     public selectedUser!:any;
     userRoles: any[] = [];
+    public isUpdate: boolean = false;
 
     constructor(private formBuilder: FormBuilder, 
       private userRoleMappingService: UserRoleMappingService,
       private messageService: MessageService, private userRoleService: UserRoleService,
-      private userService: UserService,private route: ActivatedRoute) { }
+      private userService: UserService,private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit(): void {
+      const routeName = this.route.snapshot.url[0].path;
+      this.isUpdate = routeName == 'updateuserrolemapping' ? true : false;
       this.userRoleForm = this.formBuilder.group({
-        UserID: [this.selectedUser, Validators.required],
-        selectedRoles: [this.selectedRoles, Validators.nullValidator],
+        UserID: [{value: this.selectedUser, disabled: this.isUpdate}, Validators.required],
+        selectedRoles: [this.selectedRoles, Validators.required],
       });
       this.getList();
     }
@@ -86,16 +82,15 @@ import { UserService } from '../services/user.service';
       if (this.userRoleForm.valid) {
         var userRoleMapping = this.userRoleForm.value;
         const userRoleMappingDto = new UserRoleMappingDto();
-        userRoleMappingDto.userID = userRoleMapping?.UserID?.id;
-        userRoleMappingDto.roles = userRoleMapping?.selectedRoles;
+        userRoleMappingDto.userID = this.selectedUser.Id;
+        userRoleMappingDto.roles = this.selectedRoles;
 
         this.userRoleMappingService.addUserRoleMapping(userRoleMappingDto).subscribe(
           () => {
-            this.messageService.add({ severity: 'success', summary: 'Success', detail: 'User added successfully' });
-            this.userRoleForm.reset();
+            this.router.navigate([environment.userRoleMapping.listurl]);
           },
           (error) => {
-            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to add user' });
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to Add' });
           }
         );
       }
