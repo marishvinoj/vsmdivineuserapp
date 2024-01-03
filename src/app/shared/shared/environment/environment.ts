@@ -4,9 +4,9 @@ export const environment = {
     apiUrl: "https://localhost:7138/",
     user:
     {
-      addurl: 'addrole/',
-      updateurl:'updaterole/',
-      listurl: 'rolelist/',
+      addurl: '/adduser',
+      updateurl:'updateuser/',
+      listurl: 'userlist/',
       adduser: 'adduser'
     },
     userRole:

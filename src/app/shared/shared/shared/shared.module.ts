@@ -5,20 +5,24 @@ import { AddComponent } from '../Components/add/add.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
-  declarations: [AddComponent],
+  declarations: [
+    AddComponent],
   imports: [
     CommonModule,
     TableModule,
     DropdownModule,
     BrowserAnimationsModule,
-    MultiSelectModule
+    MultiSelectModule,
+    MenubarModule
   ],
   exports: [
     TableModule,
     DropdownModule,
-    MultiSelectModule
+    MultiSelectModule,
+    MenubarModule
   ]
 })
 export class SharedModule { }

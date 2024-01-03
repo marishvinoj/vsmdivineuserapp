@@ -28,7 +28,7 @@ export class UserService {
     return this.commonService.update(user, `${environment.apiUrl}${'api/Users'}/${user.Id}`);
   }
 
-  getUserRoleById(Id: number, url:string): Observable<any> {
+  getUserById(Id: number): Observable<any> {
     return this.commonService.getById(`${environment.apiUrl}${'api/Users'}/${Id}`);
   }
 

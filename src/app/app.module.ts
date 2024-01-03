@@ -21,6 +21,7 @@ import { SharedModule } from './shared/shared/shared/shared.module';
 import { UserRoleMappingComponent } from './user-role-mapping/user-role-mapping.component';
 import { UserRoleMappingListComponent } from './user-role-mapping/user-role-mapping-list/user-role-mapping-list.component';
 import { ListComponent } from './shared/shared/Components/list/list.component';
+import { MenubarTemplateComponent } from './shared/shared/Components/menubar-template/menubar-template.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ListComponent } from './shared/shared/Components/list/list.component';
     UserRoleListComponent,
     ListComponent,
     UserRoleMappingComponent,
-    UserRoleMappingListComponent
+    UserRoleMappingListComponent,
+    MenubarTemplateComponent
   ],
   imports: [
     RouterModule,AppRoutingModule,
@@ -45,7 +47,7 @@ import { ListComponent } from './shared/shared/Components/list/list.component';
     ToastModule,
     HttpClientModule, 
     ToggleButtonModule,
-    SharedModule
+    SharedModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
@@ -53,7 +55,7 @@ import { ListComponent } from './shared/shared/Components/list/list.component';
   providers: [MessageService, UserService],
   bootstrap: [AppComponent],
   exports: [
-    ToggleButtonModule
+    ToggleButtonModule,
   ]
 })
 

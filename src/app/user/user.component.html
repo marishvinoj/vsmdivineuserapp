@@ -51,11 +51,11 @@
             </div>
 
             <div class="form-group p-field" >
-                <label for="dob">Date of Birth</label>
-                <p-calendar id="dob" formControlName="Dob" 
-                [ngClass]="{ 'p-invalid': userForm.get('Dob')?.invalid && userForm.get('Dob')?.touched }"></p-calendar>
-                <div *ngIf="userForm.get('Dob')?.invalid && userForm.get('Dob')?.touched" class="p-error">
-                <small *ngIf="userForm.get('Dob')?.errors?.['required']">Date of Birth is required.</small>
+                <label for="DOB">Date of Birth</label>
+                <p-calendar id="DOB" formControlName="DOB"  [(ngModel)]="DOB" 
+                [ngClass]="{ 'p-invalid': userForm.get('DOB')?.invalid && userForm.get('DOB')?.touched }"></p-calendar>
+                <div *ngIf="userForm.get('DOB')?.invalid && userForm.get('DOB')?.touched" class="p-error">
+                <small *ngIf="userForm.get('DOB')?.errors?.['required']">Date of Birth is required.</small>
                 </div>
             </div>
         

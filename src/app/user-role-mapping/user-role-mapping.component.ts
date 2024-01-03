@@ -1,11 +1,10 @@
 
-  import { Component, OnInit } from '@angular/core';
-  import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-  import { UserRoleMappingService } from '../services/userrolemapping.service';
-  import { UserRoleService } from '../services/userrole.service';
-  import { MessageService } from 'primeng/api';
-  import { UserRoleMappingDto } from '../models/UserRoleMappingDto ';
-  import { UserRole } from '../models/userrole';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserRoleMappingService } from '../services/userrolemapping.service';
+import { UserRoleService } from '../services/userrole.service';
+import { MessageService } from 'primeng/api';
+import { UserRoleMappingDto } from '../models/UserRoleMappingDto ';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { environment } from '../shared/shared/environment/environment';
