@@ -30,7 +30,7 @@
         <th *ngFor="let key of keys;"  [pSortableColumn]="key" pReorderableColumn>
             <ng-container *ngIf="key !== 'Id' && key !== 'CreatedBy'
              && key !== 'CreatedDate' && key !== 'ModifiedDate'
-             && key !== 'ModifiedBy' && key !== 'IsActive'
+             && key !== 'ModifiedBy' && key !== 'IsActive' && key != 'UserID'
             ">
                 <p-sortIcon [field]="key"></p-sortIcon> <span  >{{key}}</span>
             </ng-container>
@@ -48,7 +48,7 @@
                 <td  *ngFor="let key of keys;"  [pEditableColumn]="grid[key]" pEditableColumnField="grid[key]">
                     <ng-container *ngIf="key !== 'Id' && key !== 'CreatedBy'
                     && key !== 'CreatedDate' && key !== 'ModifiedDate'
-                    && key !== 'ModifiedBy' && key !== 'IsActive'">
+                    && key !== 'ModifiedBy' && key !== 'IsActive' && key != 'UserID'">
                         {{grid[key]}}
                     </ng-container>
                 </td>

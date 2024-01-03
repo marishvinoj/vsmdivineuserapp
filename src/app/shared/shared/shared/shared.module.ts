@@ -4,6 +4,7 @@ import { TableModule } from 'primeng/table';
 import { AddComponent } from '../Components/add/add.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [AddComponent],
@@ -11,11 +12,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     TableModule,
     DropdownModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MultiSelectModule
   ],
   exports: [
     TableModule,
-    DropdownModule
+    DropdownModule,
+    MultiSelectModule
   ]
 })
 export class SharedModule { }
