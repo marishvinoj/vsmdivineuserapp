@@ -35,7 +35,7 @@
                 <label for="gender">Gender</label>
                 <div class="p-grid">
                 <div class="p-col">
-                    <p-toggleButton [(ngModel)]="checked" onLabel="Male" offLabel="Female"
+                    <p-toggleButton onLabel="Male" offLabel="Female"
                     formControlName="Gender" class="form-control" ></p-toggleButton>
                 </div>
                 </div>
@@ -52,13 +52,12 @@
 
             <div class="form-group p-field" >
                 <label for="DOB">Date of Birth</label>
-                <p-calendar id="DOB" formControlName="DOB"  [(ngModel)]="DOB" 
+                <p-calendar id="DOB" formControlName="DOB" dateFormat="dd-mm-yy"
                 [ngClass]="{ 'p-invalid': userForm.get('DOB')?.invalid && userForm.get('DOB')?.touched }"></p-calendar>
                 <div *ngIf="userForm.get('DOB')?.invalid && userForm.get('DOB')?.touched" class="p-error">
                 <small *ngIf="userForm.get('DOB')?.errors?.['required']">Date of Birth is required.</small>
                 </div>
-            </div>
-        
+            </div>        
             <div class="form-group p-field" >
                 <label for="address">Address</label>
                 <textarea id="address" pInputTextarea formControlName="Address" 

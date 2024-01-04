@@ -6,10 +6,12 @@ import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { MenubarModule } from 'primeng/menubar';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
-    AddComponent],
+    AddComponent
+  ],
   imports: [
     CommonModule,
     TableModule,
@@ -18,11 +20,13 @@ import { MenubarModule } from 'primeng/menubar';
     MultiSelectModule,
     MenubarModule
   ],
+  providers:[DatePipe],
   exports: [
     TableModule,
     DropdownModule,
     MultiSelectModule,
-    MenubarModule
+    MenubarModule,
+    DatePipe
   ]
 })
 export class SharedModule { }
